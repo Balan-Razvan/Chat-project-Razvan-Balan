@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <!-- panou lateral -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">Chat</div>
+                </div>
+                <button class="btn-icon">New</button>
+            </div>
+
+
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="search conversations">                
+            </div>
+
+
+            <div class="chat-list">
+                <div class="chat-list-section">
+                    <div class="section-title">Today</div>
+                </div>
+            </div>
+
+
+            <div class="sidebar-footer">
+                <button class="btn-secondary">Settings</button>
+            </div>
+        </aside>
+
+
+
+        <!-- main -->
+         <main class="chat-container">
+            <header class="chat-header">
+                <div class="chat-header-info">
+                    <h1 class="chat-title">New Conversation</h1>
+                    <span class="chat-status">Online</span>
+                </div>
+
+                <div class="chat-header-actions">
+                    <button class="btn-icon">Call</button>
+                    <button class="btn-icon">More</button>
+                </div>
+            </header>
+
+
+            <div class="messages-container">
+                <div class="messages-wrapper">
+                    <div class="welcome-screen">
+                        <h2 class="welcome-title">Start a conversation</h2>
+                        <p class="welcome-subtitle">Send a message</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <button class="btn-icon">atc</button>
+                    <div class="input-field-container">
+                        <textarea class="message-input" placeholder="type a message..." rows="1" maxlength="5000"></textarea>
+                        <div class="input-actions">
+                            <button class="btn-icon">emoji</button>
+                        </div>
+                    </div>
+                    <button class="btn-send">Send</button>
+                </div>
+            </div>
+         </main>
+    </div>
+</body>
+</html>
