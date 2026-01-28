@@ -1,108 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
- 
- 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
     <div class="app-container">
+      <!-- panou lateral -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <div class="logo-text">Chat</div>
+          </div>
+          <button class="btn-text">New</button>
+        </div>
 
-        <!-- panou lateral -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">
-                    <div class="logo-text">Chat</div>
-                </div>
-                <button class="btn-text">New</button>
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="search conversations"
+          />
+        </div>
+
+        <div class="chat-list">
+          <div class="chat-list-section">
+            <div class="section-title">Today</div>
+            <div class="section-messages"></div>
+            <div class="section-title">Older</div>
+            <div class="section-messages"></div>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="dropdown dropdown--up">
+            <button class="btn-text dropdown-toggle" data-dropdown="settings">
+              Settings
+            </button>
+            <div class="dropdown-menu" id="settings-dropdown">
+              <button class="dropdown-item">My Profile</button>
+              <button class="dropdown-item">Notifications</button>
+              <button class="dropdown-item">Log out</button>
             </div>
+          </div>
+        </div>
+      </aside>
 
+      <!-- main -->
+      <main class="chat-container">
+        <header class="chat-header">
+          <div class="chat-header-info">
+            <h1 class="chat-title">Razvan</h1>
+            <span class="chat-status">Online</span>
+          </div>
 
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="search conversations">                
+          <div class="chat-header-actions">
+            <button class="btn-icon">
+              <img src="media/call.svg" alt="" />
+            </button>
+            <div class="dropdown">
+              <button class="btn-icon dropdown-toggle" data-dropdown="more">
+                <img src="media/more.svg" alt="" />
+              </button>
+              <div class="dropdown-menu" id="more-dropdown">
+                <button class="dropdown-item">View Profile</button>
+                <button class="dropdown-item">Search in Chat</button>
+                <button class="dropdown-item">Block</button>
+              </div>
             </div>
+          </div>
+        </header>
 
+        <div class="messages-container">
+          <div class="welcome-screen">
+            <h2 class="welcome-title">Start a conversation</h2>
+            <p class="welcome-subtitle">Send a message</p>
+          </div>
 
-            <div class="chat-list">
-                <div class="chat-list-section">
-                    <div class="section-title">Today</div>
-                    <div class="section-messages"></div>
-                    <div class="section-title">Older</div>
-                    <div class="section-messages"></div>
-                </div>
+          <div class="messages-wrapper">
+            <div class="message message--received">
+              <div class="message-content">Hey how are you?</div>
+              <span class="message-time">10:20 AM</span>
             </div>
-
-
-            <div class="sidebar-footer">
-                <button class="btn-text">Settings</button>
+            <div class="message message--sent">
+              <div class="message-content">I'm good, thanks! Just working</div>
+              <span class="message-time">10:21 AM</span>
             </div>
-        </aside>
-
-
-
-        <!-- main -->
-         <main class="chat-container">
-            <header class="chat-header">
-                <div class="chat-header-info">
-                    <h1 class="chat-title">Razvan</h1>
-                    <span class="chat-status">Online</span>
-                </div>
-
-                <div class="chat-header-actions">
-                    <button class="btn-icon"><img src="media/call.svg" alt=""></button>
-                    <button class="btn-icon">more...</button>
-                </div>
-            </header>
-
-
-            <div class="messages-container">
-                    <div class="welcome-screen">
-                        <h2 class="welcome-title">Start a conversation</h2>
-                        <p class="welcome-subtitle">Send a message</p>
-                    </div>
-
-                    <div class="messages-wrapper">
-                        <div class="message message--received">
-                            <div class="message-content">Hey how are you?</div>
-                            <span class="message-time">10:20 AM</span>
-                        </div>
-                        <div class="message message--sent">
-                            <div class="message-content">I'm good, thanks! Just working</div>
-                            <span class="message-time">10:21 AM</span>
-                        </div>
-                        <div class="message message--received">
-                            <div class="message-content">Sounds good! Let me know if you need anything!</div>
-                            <span class="message-time">10:22 AM</span>
-                        </div>
-                        <div class="message message--sent">
-                            <div class="message-content">Will do! Thanks!</div>
-                            <span class="message-time">10:23 AM</span>
-                        </div>
-                    </div>
+            <div class="message message--received">
+              <div class="message-content">
+                Sounds good! Let me know if you need anything!
+              </div>
+              <span class="message-time">10:22 AM</span>
             </div>
-
-
-            <div class="input-container">
-                <div class="input-wrapper">
-                    <button class="btn-icon"><img src="/media/attachment.svg" alt=""></button>
-                    <div class="input-field-container">
-                        <textarea class="message-input" placeholder="type a message..." rows="1" maxlength="5000"></textarea>
-                        <div class="input-actions">
-                            <button class="btn-icon" style="border: none;"><img src="media/emoji.svg" alt=""></button>
-                        </div>
-                    </div>
-                    <button class="btn-icon"><img src="/media/sent.svg" alt=""></button>
-                </div>
+            <div class="message message--sent">
+              <div class="message-content">Will do! Thanks!</div>
+              <span class="message-time">10:23 AM</span>
             </div>
-         </main>
+          </div>
+        </div>
+
+        <div class="input-container">
+          <div class="input-wrapper">
+            <button class="btn-icon">
+              <img src="/media/attachment.svg" alt="" />
+            </button>
+            <div class="input-field-container">
+              <textarea
+                class="message-input"
+                placeholder="type a message..."
+                rows="1"
+                maxlength="5000"
+              ></textarea>
+              <div class="input-actions">
+                <button class="btn-icon" style="border: none">
+                  <img src="media/emoji.svg" alt="" />
+                </button>
+              </div>
+            </div>
+            <button class="btn-icon">
+              <img src="/media/sent.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
-</body>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
 </html>
