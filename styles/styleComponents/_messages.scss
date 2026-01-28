@@ -1,0 +1,36 @@
+@layer components {
+    .messages-container {
+        overflow-y: scroll;
+        position: relative;
+    }
+
+    .exemplu-trimis {
+        width: fit-content;
+        position: absolute;
+        overflow-wrap: anywhere;
+        border-radius: var(--radius-md);
+        width: 300px;
+        bottom: 50px;
+        padding: 1rem;
+        right: 50px;
+        height: 100px;
+        background: var(--bg-tertiary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .exemplu-primit {
+        width: fit-content;
+        position: absolute;
+        overflow-wrap: anywhere;
+        border-radius: var(--radius-md);
+        width: 300px;
+        bottom: 200px;
+        padding: 1rem;
+        height: 100px;
+        background: var(--bg-tertiary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

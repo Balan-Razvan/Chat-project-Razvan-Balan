@@ -1,0 +1,18 @@
+.chat-list {
+  overflow-x: auto;
+  padding: var(--space-sm);
+  background: var(--bg-tertiary);
+  margin: 1rem;
+  height: 100%;
+  border-radius: var(--radius-md);
+  .section-title {
+    padding: var(--space-sm);
+    color: var(--text-muted);
+  }
+  .section-messages {
+    height: 15rem;
+    width: 100%;
+    background: var(--bg-main);
+    border-radius: var(--radius-md);
+  }
+}

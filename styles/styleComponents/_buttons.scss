@@ -1,0 +1,25 @@
+.btn-icon {
+  min-width: 40px;
+  min-height: 40px;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  background: var(--bg-main);
+
+  &:hover {
+    background: var(--bg-hover);
+  }
+}
+
+.btn-text {
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+
+  &:hover {
+    background: var(--bg-hover);
+  }
+}
