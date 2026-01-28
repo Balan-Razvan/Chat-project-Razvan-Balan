@@ -133,19 +133,28 @@
   }
 }
 .btn-icon {
-  min-width: 40px;
-  min-height: 40px;
+  cursor: pointer;
+  min-width: 70px;
+  min-height: 30px;
   padding: var(--space-md);
   border-radius: var(--radius-md);
   color: var(--text-secondary);
   border: 1px solid var(--border);
   background: var(--bg-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .btn-icon:hover {
   background: var(--bg-hover);
 }
+.btn-icon img {
+  width: 30px;
+}
 
 .btn-text {
+  cursor: pointer;
   width: 100%;
   padding: var(--space-md);
   background: var(--bg-tertiary);
