@@ -1,0 +1,22 @@
+
+.input-field-container {
+    flex: 1;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    border-radius: var(--space-md);
+
+    .message-input {
+        flex: 1;
+        padding: var(--space-lg);
+        background: transparent;
+        border: none;
+        color: var(--text-primary);
+        outline: none;
+    }
+
+    .input-actions {
+        padding: 0 var(--space-md) 0 var(--space-md);
+    }
+}

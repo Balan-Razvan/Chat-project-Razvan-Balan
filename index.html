@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <div class="app-container">
@@ -14,10 +14,9 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <div class="logo-icon"></div>
                     <div class="logo-text">Chat</div>
                 </div>
-                <button class="btn-icon">New</button>
+                <button class="btn-text">New</button>
             </div>
 
 
@@ -29,12 +28,15 @@
             <div class="chat-list">
                 <div class="chat-list-section">
                     <div class="section-title">Today</div>
+                    <div class="section-messages"></div>
+                    <div class="section-title">Older</div>
+                    <div class="section-messages"></div>
                 </div>
             </div>
 
 
             <div class="sidebar-footer">
-                <button class="btn-secondary">Settings</button>
+                <button class="btn-text">Settings</button>
             </div>
         </aside>
 
@@ -56,25 +58,26 @@
 
 
             <div class="messages-container">
-                <div class="messages-wrapper">
                     <div class="welcome-screen">
                         <h2 class="welcome-title">Start a conversation</h2>
                         <p class="welcome-subtitle">Send a message</p>
                     </div>
-                </div>
+
+                    <div class="exemplu-trimis">exemplu mesaj trimis</div>
+                    <div class="exemplu-primit">exemplu mesaj primit</div>
             </div>
 
 
             <div class="input-container">
                 <div class="input-wrapper">
-                    <button class="btn-icon">atc</button>
+                    <button class="btn-icon">Attachments</button>
                     <div class="input-field-container">
                         <textarea class="message-input" placeholder="type a message..." rows="1" maxlength="5000"></textarea>
                         <div class="input-actions">
-                            <button class="btn-icon">emoji</button>
+                            <button class="btn-icon">Add an emoji</button>
                         </div>
                     </div>
-                    <button class="btn-send">Send</button>
+                    <button class="btn-icon">Send</button>
                 </div>
             </div>
          </main>

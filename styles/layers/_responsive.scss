@@ -1,0 +1,9 @@
+@media(max-width: 700px) {
+    @layer layout {
+        .sidebar {
+            position: fixed;
+            transform: translateX(-100%);
+        }
+    }
+
+}
