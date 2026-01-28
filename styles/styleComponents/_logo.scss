@@ -7,8 +7,9 @@
 
     .logo-text {
         font-size: 1.5rem;
-        background: linear-gradient(135deg, var(--primary), var(--accent));
         border-radius: var(--radius-sm);
         padding: 0.5rem 2rem 0.5rem 2rem;
+        background: var(--primary);
+        color: white;
     }
 }

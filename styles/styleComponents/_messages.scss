@@ -1,36 +1,50 @@
-@layer components {
-    .messages-container {
-        overflow-y: scroll;
-        position: relative;
-    }
+.messages-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
 
-    .exemplu-trimis {
-        width: fit-content;
-        position: absolute;
-        overflow-wrap: anywhere;
-        border-radius: var(--radius-md);
-        width: 300px;
-        bottom: 50px;
-        padding: 1rem;
-        right: 50px;
-        height: 100px;
-        background: var(--bg-tertiary);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+
+  &-content {
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+  }
+
+  &-time {
+    font-size: 0.5rem;
+    color: var(--text-muted);
+    margin-top: var(--space-xs);
+    padding: var(--space-xs);
+  }
+
+  &--sent {
+    align-self: flex-end;
+    align-items: flex-end;
+
+    .message-content {
+        background: var(--primary);
+        color: white;
+        border-bottom-right-radius: var(--radius-sm);
     }
-    .exemplu-primit {
-        width: fit-content;
-        position: absolute;
-        overflow-wrap: anywhere;
-        border-radius: var(--radius-md);
-        width: 300px;
-        bottom: 200px;
-        padding: 1rem;
-        height: 100px;
+  }
+
+  &--received {
+    align-self: flex-start;
+    align-items: flex-start;
+
+    .message-content {
         background: var(--bg-tertiary);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        color: var(--text-primary);
+        border-bottom-left-radius: var(--radius-sm);
     }
+  }
 }
