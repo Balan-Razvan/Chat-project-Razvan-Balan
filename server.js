@@ -49,28 +49,28 @@ io.on("connection", (socket) => {
 
 
   // user-ul trimite un mesaj
-  socket.on('message:send', (data) => {
+  
+socket.on("message:send", (data) => {
     const sender = connectedUsers.get(socket.id);
-
+    const text = typeof data === "string" ? data : data?.message;
 
     const messageData = {
-        from: socket.id,
-        username: sender.username,
-        message: data.message,
-        timestamp: new Date().toISOString()
+      from: socket.id,
+      username: sender?.username ?? "Unknown",
+      message: text,
+      timestamp: new Date().toISOString(),
     };
 
-    console.log(messageData.message);
+    console.log("message:", messageData.message);
 
-    // trimit catre toti in afara de cel care trimite
-    socket.broadcast.emit('message:receive', messageData);
+    socket.broadcast.emit("message:receive", messageData);
 
-    // confirm cu userul care a trimiss
-    socket.emit('message:send', {
-        message: data.message,
-        timestamp: messageData.timestamp
+    socket.emit("message:sent", {
+      message: text,
+      timestamp: messageData.timestamp,
     });
   });
+
 
 
   // cand un user se deconecteaza, anunta pe toti ceilalti useri
