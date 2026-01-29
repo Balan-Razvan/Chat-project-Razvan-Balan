@@ -1,15 +1,11 @@
 import { escapeHtml, formatTime } from "../utils/helpers.js";
 import { CONFIG } from "../config.js";
 
-export function createMessage(
-  content,
-  type = CONFIG.MESSAGE_TYPES.RECEIVED,
-  timestamp = null,
-) {
+export function createMessage(content, type = CONFIG.MESSAGE_TYPES.RECEIVED, timestamp = null) {
   const message = document.createElement(`div`);
   message.className = `message message--${type}`;
-  
-  const time = message.timestamp ? new Date(message.timestamp) : new Date();
+
+  const time = timestamp ? new Date(timestamp) : new Date();
   const timeText = formatTime(time);
 
   message.innerHTML = `
