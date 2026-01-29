@@ -38,7 +38,7 @@ function initChat() {
     messagesWrapper: document.querySelector(".messages-wrapper"),
     messageInput: document.querySelector(".message-input"),
     chatStatus: document.querySelector(".chat-status"),
-    sendButton: document.querySelector(".input-wrapper > .btn-icon:last-child"),
+    sendButton: document.querySelector("#send"),
   };
 
   socketService.connect();
@@ -95,7 +95,10 @@ function initChat() {
 
 
   // event listeneri
-  elements.sendButton.addEventListener("click", sendMessage(elements));
+  elements.sendButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    sendMessage(elements);
+  });
 
   elements.messageInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
