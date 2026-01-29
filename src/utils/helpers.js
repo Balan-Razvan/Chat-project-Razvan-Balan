@@ -13,7 +13,6 @@ export function formatTime(date) {
     });
 }
 
-
 export function scrollToBottom(element) {
     element.scrollTop = element.scrollHeight;
 }

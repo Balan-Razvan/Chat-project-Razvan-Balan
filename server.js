@@ -107,7 +107,7 @@ io.on("connection", (socket) => {
       timestamp: new Date().toISOString(),
     };
 
-    console.log("message:", messageData.message);
+    console.log(`${messageData.username} message:`, messageData.message);
 
     socket.broadcast.emit(EVENTS.MESSAGE_RECEIVE, messageData);
 

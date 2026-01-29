@@ -36,7 +36,29 @@
         <div class="chat-list">
           <div class="chat-list-section">
             <div class="section-title">Today</div>
-            <div class="section-messages"></div>
+            <div class="section-messages">
+              <div class="conversation-card conversation-card--active" data-conversation-id="1">
+                <div class="conversation-card__avatar">RB</div>
+                <div class="conversation-card__content">
+                  <div class="conversation-card__header">
+                    <span class="conversation-card__name">Razvan Balan</span>
+                    <span class="conversation-card__time">2m</span>
+                  </div>
+                  <div class="conversation-card__preview">hey, what's up</div>
+                </div>
+              </div>
+              <div class="conversation-card conversation-card" data-conversation-id="1">
+                <div class="conversation-card__avatar">PI</div>
+                <div class="conversation-card__content">
+                  <div class="conversation-card__header">
+                    <span class="conversation-card__name">Popescu Ion</span>
+                    <span class="conversation-card__time">1m</span>
+                  </div>
+                  <div class="conversation-card__preview">hey, what's up</div>
+                </div>
+                <div class="conversation-card__badge">1</div>
+              </div>
+            </div>
             <div class="section-title">Older</div>
             <div class="section-messages"></div>
           </div>
@@ -108,7 +130,7 @@
                 </button>
               </div>
             </div>
-            <button class="btn-icon">
+            <button class="btn-icon" id="send">
               <img src="/media/sent.svg" alt="" />
             </button>
           </div>
