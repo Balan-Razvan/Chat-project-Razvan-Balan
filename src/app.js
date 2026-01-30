@@ -6,6 +6,7 @@ import { scrollToBottom } from "./utils/helpers.js";
 document.addEventListener("DOMContentLoaded", () => {
   initDropdowns();
   initChat();
+  initUsernameModal();
 });
 
 //functii
@@ -48,7 +49,10 @@ function initChat() {
 
     updateStatus(elements.chatStatus, "online", "green");
 
-    socketService.join(CONFIG.DEFAULT_USERNAME);
+    if(window._pendingUsername) {
+      socketService.join(window._pendingUsername);
+      window._pendingUsername = null;
+    }
   });
 
   socketService.on("disconnected", () => {
@@ -135,3 +139,52 @@ document.addEventListener("click", (e) => {
     });
   }
 });
+
+// username
+
+const USERNAME_STORAGE_KEY = 'chat_username';
+
+function getStoredUsername() {
+  return sessionStorage.getItem(USERNAME_STORAGE_KEY);
+}
+function storeUsername(username) {
+  sessionStorage.setItem(USERNAME_STORAGE_KEY, username);
+}
+
+function updateHeaderUsername(username) {
+  const chatTitle = document.querySelector(".chat-title");
+  if (chatTitle) {
+    chatTitle.textContent = username;
+  }
+}
+
+function initUsernameModal() {
+  const modal = document.getElementById("username-modal");
+  const form = document.getElementById('username-form');
+  const input = document.getElementById("username-input");
+
+  modal.classList.remove("hidden");
+
+  input.focus();
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const username = input.value.trim();
+
+    if(!username) {
+      return;
+    }
+
+    storeUsername(username);
+    updateHeaderUsername(username);
+
+    modal.classList.add("hidden");
+
+    if(socketService.isConnected) {
+      socketService.join(username);
+    } else {
+      window._pendingUsername = username;
+    }
+  });
+}
