@@ -191,6 +191,12 @@
   background: var(--bg-main);
   border-radius: var(--radius-md);
 }
+.chat-list .users-list {
+  height: 15rem;
+  width: 100%;
+  background: var(--bg-main);
+  border-radius: var(--radius-md);
+}
 
 .input-field-container {
   flex: 1;
