@@ -15,6 +15,20 @@
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
+
+
+    <div class="modal-overlay" id="username-modal">
+      <div modal-content>
+        <h2 class="modal-title">Welcome</h2>
+        <p class="modal-subtitle">Enter your name</p>
+        <form class="modal-form" id="username-form">
+          <input type="text" class="modal-input" placeholder="enter your name" required autofocus id="username-input"/>
+          <button type="submit" class="modal-button"> Continue</button>
+        </form>
+      </div>
+    </div>
+
+
     <div class="app-container">
       <!-- panou lateral -->
       <aside class="sidebar">
@@ -59,8 +73,8 @@
                 <div class="conversation-card__badge">1</div>
               </div>
             </div>
-            <div class="section-title">Older</div>
-            <div class="section-messages"></div>
+            <div class="section-title">All Users</div>
+            <div class="users-list"></div>
           </div>
         </div>
 

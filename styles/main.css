@@ -191,6 +191,12 @@
   background: var(--bg-main);
   border-radius: var(--radius-md);
 }
+.chat-list .users-list {
+  height: 15rem;
+  width: 100%;
+  background: var(--bg-main);
+  border-radius: var(--radius-md);
+}
 
 .input-field-container {
   flex: 1;
@@ -428,6 +434,93 @@
   height: auto;
   min-height: 3rem;
   background: transparent;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--bg-main);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+}
+
+.modal-title {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm) 0;
+  font-weight: 700;
+}
+
+.modal-subtitle {
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-lg) 0;
+  font-size: 0.95rem;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.modal-input {
+  width: 100%;
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: var(--font-family);
+  transition: all 0.2s ease;
+}
+.modal-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: var(--bg-main);
+}
+.modal-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.modal-button {
+  padding: var(--space-md);
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.modal-button:hover {
+  background: #7a4d24;
+  transform: translateY(-1px);
+}
+.modal-button:active {
+  transform: translateY(0);
 }
 
 @media (max-width: 700px) {
