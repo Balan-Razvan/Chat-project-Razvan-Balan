@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initUsernameModal();
 });
 
-
+const onlineUsers = new Map();
 
 //functii
 
@@ -55,7 +55,7 @@ function initChat() {
 
     updateStatus(elements.chatStatus, "online", "green");
 
-    if(window._pendingUsername) {
+    if (window._pendingUsername) {
       socketService.join(window._pendingUsername);
       window._pendingUsername = null;
     }
@@ -93,18 +93,25 @@ function initChat() {
 
   socketService.on(EVENTS.USER_JOINED, (data) => {
     console.log(`${data.username} joined`);
+
+    onlineUsers.set(data.id, data);
+    renderOnlineUserList([...onlineUsers.values()]);
   });
 
   socketService.on(EVENTS.USER_LEFT, (data) => {
     console.log(`${data.username} left`);
+
+    onlineUsers.delete(data.id);
+    renderOnlineUserList([...onlineUsers.values()]);
   });
 
   socketService.on(EVENTS.USERS_LIST, (users) => {
     console.log(users);
+    onlineUsers.clear();
 
-    renderOnlineUserList(users);
+    users.forEach((u) => onlineUsers.set(u.id, u));
+    renderOnlineUserList([...onlineUsers.values()]);
   });
-
 
   // event listeneri
   elements.sendButton.addEventListener("click", (e) => {
@@ -124,7 +131,7 @@ function initChat() {
 
 function initUsernameModal() {
   const modal = document.getElementById("username-modal");
-  const form = document.getElementById('username-form');
+  const form = document.getElementById("username-form");
   const input = document.getElementById("username-input");
 
   modal.classList.remove("hidden");
@@ -136,7 +143,7 @@ function initUsernameModal() {
 
     const username = input.value.trim();
 
-    if(!validateUsername(username)) {
+    if (!validateUsername(username)) {
       return;
     }
 
@@ -145,14 +152,13 @@ function initUsernameModal() {
 
     modal.classList.add("hidden");
 
-    if(socketService.isConnected) {
+    if (socketService.isConnected) {
       socketService.join(username);
     } else {
       window._pendingUsername = username;
     }
   });
 }
-
 
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".dropdown")) {
