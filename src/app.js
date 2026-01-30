@@ -1,7 +1,10 @@
 import { socketService } from "./services/api.js";
 import { createMessage } from "./components/message.js";
 import { CONFIG, EVENTS } from "./config.js";
-import { scrollToBottom } from "./utils/helpers.js";
+import { scrollToBottom, validateUsername } from "./utils/helpers.js";
+import { initDropdowns } from "./components/dropdowns.js";
+import { storeUsername, updateHeaderUsername } from "./components/usernames.js";
+import { renderOnlineUserList } from "./components/conversationCards.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initDropdowns();
@@ -9,7 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initUsernameModal();
 });
 
+
+
 //functii
+
 function sendMessage(elements) {
   const text = elements.messageInput.value.trim();
   if (!text) {
@@ -45,7 +51,7 @@ function initChat() {
   socketService.connect();
 
   socketService.on("connected", () => {
-    console.log("connecte");
+    console.log("connected");
 
     updateStatus(elements.chatStatus, "online", "green");
 
@@ -95,6 +101,8 @@ function initChat() {
 
   socketService.on(EVENTS.USERS_LIST, (users) => {
     console.log(users);
+
+    renderOnlineUserList(users);
   });
 
 
@@ -112,51 +120,7 @@ function initChat() {
   });
 }
 
-// dropdowns
-function initDropdowns() {
-  const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
-
-  dropdownToggles.forEach((toggle) => {
-    toggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const dropdown = toggle.closest(".dropdown");
-
-      document.querySelectorAll(".dropdown.active").forEach((d) => {
-        if (d !== dropdown) {
-          d.classList.remove("active");
-        }
-      });
-
-      dropdown.classList.toggle("active");
-    });
-  });
-}
-
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".dropdown")) {
-    document.querySelectorAll(".dropdown.active").forEach((dropdown) => {
-      dropdown.classList.remove("active");
-    });
-  }
-});
-
-// username
-
-const USERNAME_STORAGE_KEY = 'chat_username';
-
-function getStoredUsername() {
-  return sessionStorage.getItem(USERNAME_STORAGE_KEY);
-}
-function storeUsername(username) {
-  sessionStorage.setItem(USERNAME_STORAGE_KEY, username);
-}
-
-function updateHeaderUsername(username) {
-  const chatTitle = document.querySelector(".chat-title");
-  if (chatTitle) {
-    chatTitle.textContent = username;
-  }
-}
+// username modal
 
 function initUsernameModal() {
   const modal = document.getElementById("username-modal");
@@ -172,7 +136,7 @@ function initUsernameModal() {
 
     const username = input.value.trim();
 
-    if(!username) {
+    if(!validateUsername(username)) {
       return;
     }
 
@@ -188,3 +152,12 @@ function initUsernameModal() {
     }
   });
 }
+
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown.active").forEach((dropdown) => {
+      dropdown.classList.remove("active");
+    });
+  }
+});
