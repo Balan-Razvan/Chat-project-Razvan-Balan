@@ -98,3 +98,13 @@
     min-height: 3rem;
     background: transparent;
 }
+
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    height: auto;
+    min-height: 3rem;
+    background: transparent;
+  }

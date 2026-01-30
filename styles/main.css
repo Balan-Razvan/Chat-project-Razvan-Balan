@@ -190,12 +190,14 @@
   width: 100%;
   background: var(--bg-main);
   border-radius: var(--radius-md);
+  overflow-y: scroll;
 }
 .chat-list .users-list {
   height: 15rem;
   width: 100%;
   background: var(--bg-main);
   border-radius: var(--radius-md);
+  overflow-y: scroll;
 }
 
 .input-field-container {
@@ -428,6 +430,15 @@
 }
 
 .section-messages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  height: auto;
+  min-height: 3rem;
+  background: transparent;
+}
+
+.users-list {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
