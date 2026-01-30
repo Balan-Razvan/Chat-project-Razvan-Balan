@@ -85,10 +85,9 @@ io.on("connection", (socket) => {
     const user = addUser(socket.id, username);
 
     // trimite pe server info ca user-ul a dat join
-    io.emit(EVENTS.USER_JOINED, user);
+    socket.broadcast.emit(EVENTS.USER_JOINED, user);
 
-    // trimit user-ului info despre ceilalti
-    socket.emit(EVENTS.USERS_LIST, getAllUsers());
+    io.emit(EVENTS.USERS_LIST, getAllUsers());
   });
 
 
