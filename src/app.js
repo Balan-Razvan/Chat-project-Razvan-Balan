@@ -127,8 +127,9 @@ function initChat() {
   });
 }
 
-// username modal
 
+
+// username modal
 function initUsernameModal() {
   const modal = document.getElementById("username-modal");
   const form = document.getElementById("username-form");
